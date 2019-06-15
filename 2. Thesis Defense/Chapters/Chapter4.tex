@@ -1,0 +1,21 @@
+
+\chapter{Future Plans \& Conclusion}
+After the experiments and results we achieved from Chapter \ref{chap:prog}, we noted some observations. Those are described below - \\
+From the output of Figure \ref{fig:compare1}, \ref{fig:compare2}, it is seen that \textbf{CycleGAN} gives pretty realistic output. It seems almost real at the first glance. However, after taking a close look from Figure \ref{fig:lim}, we came to conclusion that, the content of the input image is not quite retrieved in \textbf{CycleGAN} outputs. In fact, it translates skies to seas and seas to skies.\\
+Again, for \textbf{SingleGAN}, we notice that, this model doesn't produce much satisfactory result. From Figure \ref{fig:lim_sing} and even from \ref{fig:compare1}, \ref{fig:compare2}, we see that \textbf{SingleGAN} doesn't excel at all. The color is too faded and the contents are not retrieved perfectly.\\
+Lastly, for \textbf{UNIT}'s case, we see that the model is succeeded in retrieving every pixel of the input perfectly. Almost no output can be seen where it varies too much from input. However, according to Figure \ref{fig:lim_un}, as much perfect content-wise as it is, it fails in making outputs more realistic. They seem pretty cartoonish due to the smoothness of the surface.
+
+\section{Final Decision}
+
+From the above observations, we decided to emphasize more on \textbf{CycleGAN} and \textbf{UNIT} as they complement each other. We are excluding \textbf{SingleGAN} as it fails to produce any output close to our satisfaction. Assuming that making the output sharper will improve the result, we planned $four$ options. These are discussed below -
+
+\subsection{Preprocessing Input}
+Previously, we used the raw dataset as our input. As our output lacks sharpness, we assume that adding more crisp in the input might give us a better realistic output. On this case, we want to add more details on \textbf{UNIT} model and see how that impacts our result.
+\subsection{Using Sharpening Loss}
+Another idea to add more crisp in the output is to use sharpening loss. We got this idea from \textbf{CartoonGAN} \cite{cartoonGAN}. \textbf{CartoonGAN} uses an \textit{edge loss} function to create more cartoonish images as they observed that cartoons tend to have sharper edge than real images. We decided to implement idea on \textbf{UNIT} model. Instead of using edge loss function, we will use \textit{Sharpening Loss} Function.
+\subsection{PatchGAN as Discriminator}
+
+We know from Section \ref{cyc_ccl} that, \textbf{CycleGAN} uses \textit{PatchGAN} as discriminator to reduce loss of high frequency details of images such as crisp, texture. We may guess why \textit{CycleGAN} perfroms better in case of high frequency details. So, we decided to add \textbf{PatchGAN} discriminator into \textbf{UNIT} model as an option to improve our result.
+
+\section{Conclusion}
+In this report, we have discussed about our topic in-depth. We showed our experiments based on our project. We made a brief overview of the models of the experiments and their architecture and how they work. Finally, we analyzed all these experiments and developed a plan to improve our project. Our goal is to produce a result which will as real as it can get.

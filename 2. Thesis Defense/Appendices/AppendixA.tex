@@ -1,0 +1,36 @@
+\chapter{Appendix A}
+\begin{appendices}
+
+\section{Binary Cross Entropy Loss}
+\label{appendix:BCE}
+A criterion to measure the Binary Cross Entropy between the target and the output. The loss can be described as:\\
+    $\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad
+l_n = - w_n \left[ y_n \cdot \log x_n + (1 - y_n) \cdot \log (1 - x_n) \right],$\\
+where N is the batch size.
+
+\section{Why Least Squares Loss more suitable for GAN}
+\label{appendix:L2}
+for $\mathcal{L}_{adv}$(Adversarial loss), the negative log likelihood objective is replaced by a least-squares loss. This loss is more stable during training and generates higher quality results.
+
+\section{Encoder - Decoder Network}
+\label{appendix:En-Dec}
+From \cite{BibEntry2018Nov}, 
+“Generally, the encoder encodes the input sequence to an internal representation called 'context vector' which is used by the decoder to generate the output sequence. The lengths of input and output sequences can be different, as there is no explicit one on one relation between the input and output sequences.”
+\\
+To sum up, an encoder is a network such as \textit{CNN, RNN, MLP}, which extracts a feature vector from raw inputs and then outputs the feature vecor. And decoder is also a network, which takes that output feature vector as input and produces an output which represents the input in the best way possible.
+\section{Low \& High Frequency Image}
+\label{appendix:freq}
+\textit{Frequency} means the rate of change per pixel. \textit{A high frequency} image is the one which keeps changing a its pixel in a high rate. A striped picture which has black and white stripes will have the highest frequency, since $0$ is the lowest pixel and then it changes to $255$ which is the highest within a very short time. Again, \textit{a low frequency} image is the one whose pixel values rarely change. For example, a single colored image will have 0 frequency.
+\section{Residual Block}
+\label{appendix:resblock}
+After convolutional nueural network used by \textit{AlexNET} won the \textbf{ImageNET}, the popularity of \textbf{CNN} started to rise. It was assumed that using more layers give better results. However, using more layers produced another problem, \textit{Vanishing Gradient}. It is when after running of few layers, as it goes deeper, the gradient tends to be $zero$. To avoid this problem, after sometime a new model called \textit{ResNET} was created. The main idea of it is to create blocks for which gradient won't be calculated. So, chance of vanishing gradient is decreased. This blocks are called \textbf{Residual Blocks}.
+\section{Deconvolutional Layers}
+\label{appendix:deconv}
+
+Deconvolutional layer is a term which is often used to denote a reverse convolution. It is used for image upsampling to get back the original image size. It is done in the following manner - by taking each pixel of the input, multiply them with a $3 \times 3$ kernel to get a weighted output, and then it has to be inserted into the output image. When the outputs overlap, it is summed.
+\section{Mode Collapse}
+\label{mode_collapse}
+One of the common problems of GAN is mode collapse problem. In this problem, the generator produces less diversified samples. So there is a possible chance that the generator is generating similar images without any varieties.
+ 
+\end{appendices}
+
